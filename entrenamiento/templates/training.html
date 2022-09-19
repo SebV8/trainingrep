@@ -1,0 +1,250 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'entrenamientooooooooo.css'%}">
+
+<div class="container__train">
+    <div class='train__container'>
+        <div class="train__content_left">
+            <div class="left_content">
+                <a id="ste" href='#training'>
+                    <i class="fa-solid fa-medal icon"></i>
+                    <p>Personal record</p>
+                </a>
+            </div>
+            <div class="left_content">
+                <a href="#rm_training" id="rm_bot">
+                    <i class="fa-solid fa-repeat icon"></i>
+                    <p>Repetition Maximum</p>
+                </a>
+            </div>
+            <div class="left_content">
+                <a href="/training">
+                    <i class="fa-solid fa-stopwatch icon"></i>
+                    <p>Time Cap</p>
+                </a>
+            </div>
+        </div>
+        <div class="train__content_center">
+            <h3>Training</h3>
+            <i class="fa-solid fa-trophy icon_middle"></i>
+            <h3>Mode</h3>
+        </div>
+        <div class="train__content_right">
+            <div class="right_content">
+                <a href="/traininga">
+                    <i class="fa-solid fa-medal icon"></i>
+                    <p>Right side</p>
+                </a>
+            </div>
+            <div class="right_content">
+                <a href="/traininga">
+                    <i class="fa-solid fa-medal icon"></i>
+                    <p>Right side</p>
+                </a>
+            </div>
+            <div class="right_content">
+                <a href="/traininga">
+                    <i class="fa-solid fa-medal icon"></i>
+                    <p>Right side</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- seccion de pr -->
+    <div id="training">
+        <div class="pr__container">
+            <div class="pr">
+                <h1>Back Squat</h1>
+                {% for pr in prs %}
+                {% if pr.name == "BS" %}
+                <p>Peso: {{pr.weight}}</p>
+                <h4>Fecha: {{pr.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_pr' pr.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_pr' pr.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="pr">
+                <h1>Front Squat</h1>
+                {% for pr in prs %}
+                {% if pr.name == "FS" %}
+                <p>Peso: {{pr.weight}}</p>
+                <h4>Fecha: {{pr.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_pr' pr.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_pr' pr.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="pr">
+                <h1>Deadlift</h1>
+                {% for pr in prs %}
+                {% if pr.name == "DL" %}
+                <p>Peso: {{pr.weight}}</p>
+                <h4>Fecha: {{pr.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_pr' pr.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_pr' pr.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="pr">
+                <h1>Clean</h1>
+                {% for pr in prs %}
+                {% if pr.name == "CL" %}
+                <p>Peso: {{pr.weight}}</p>
+                <h4>Fecha: {{pr.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_pr' pr.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_pr' pr.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="pr">
+                <h1>Snatch</h1>
+                {% for pr in prs %}
+                {% if pr.name == "SN" %}
+                <p>Peso: {{pr.weight}}</p>
+                <h4>Fecha: {{pr.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_pr' pr.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_pr' pr.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="botones">
+            <a href="{% url 'create_pr' %}" class="bot">Nuevo PR</a>
+        </div>
+    </div>
+
+
+    <!-- seccion de rm -->
+    <div id="rm_training">
+        <div class="pr__container">
+            <div class="pr">
+                <h1>Toes To Bar</h1>
+                {% for rm in rms %}
+                {% if rm.name == "TTB" %}
+                <p>Peso: {{rm.weight}}</p>
+                <p>Reps: {{rm.reps}}</p>
+                <h4>Fecha: {{rm.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_rm' rm.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_rm' rm.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="pr">
+                <h1>Pull Ups</h1>
+                {% for rm in rms %}
+                {% if rm.name == "FS" %}
+                <p>Peso: {{rm.weight}}</p>
+                <p>Reps: {{rm.reps}}</p>
+                <h4>Fecha: {{rm.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_rm' rm.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_rm' rm.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="pr">
+                <h1>Chest To Bar</h1>
+                {% for rm in rms %}
+                {% if rm.name == "CTB" %}
+                <p>Peso: {{rm.weight}}</p>
+                <p>Reps: {{rm.reps}}</p>
+                <h4>Fecha: {{rm.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_rm' rm.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_rm' rm.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="pr">
+                <h1>Wall Ball</h1>
+                {% for rm in rm %}
+                {% if rm.name == "WB" %}
+                <p>Peso: {{rm.weight}}</p>
+                <p>Reps: {{rm.reps}}</p>
+                <h4>Fecha: {{rm.date}}</h4>
+                <div class="botones">
+                    <a href="{% url 'update_rm' rm.id%}" class="bot__in">Editar</a>
+                    <a href="{% url 'delete_rm' rm.id%}" class="bot__in">Borrar</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="botones">
+            <a href="{% url 'create_rm' %}" class="bot">Nuevo RM</a>
+        </div>
+    </div>
+
+
+    <!-- seccion de timecap -->
+    <div id="tc_training">
+        <div class="pr__container">
+            <div class="pr">
+                <h1>Toes To Bar</h1>
+                {% for timec in tc %}
+                <p>Peso: {{timec.name}}</p>
+                <p>Reps: {{timec.time}}</p>
+                <h4>Fecha: {{timec.date}}</h4>
+                {% endfor %}
+            </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var training = document.getElementById('training'),
+        ste = document.getElementById('ste'),
+        cont = 0;
+    function mostrar() {
+        if (cont == 0) {
+            training.style.display = 'block';
+            rm_training.style.display = 'none';
+            cont = 1;
+            cont2 = 0;
+
+        } else {
+            training.style.display = 'none';
+            cont = 0;
+        }
+    }
+    var rm_training = document.getElementById('rm_training'),
+        rm_bot = document.getElementById('rm_bot'),
+        cont2 = 0;
+    function mostrar2() {
+        if (cont2 == 0) {
+            rm_training.style.display = 'block';
+            training.style.display = 'none';
+            cont2 = 1;
+            cont = 0;
+        } else {
+            rm_training.style.display = 'none';
+            cont2 = 0;
+        }
+    }
+    rm_bot.addEventListener('click', mostrar2, false);
+    ste.addEventListener('click', mostrar, false);
+</script>
+{% endblock %}

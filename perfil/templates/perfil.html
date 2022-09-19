@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'perfiiiiiil.css'%}">
+<header id='home'>
+    <div class="header__content">
+        <div class="me">
+            {% if profile.image %}
+            <img src="{{profile.image.url}}" alt="me" />
+            {% else %}
+            <h2>Imagen no cargada</h2>
+            {% endif %}
+        </div>
+        <div class="container header__container">
+            <h1>{{profile.name}} {{profile.lastN}}</h1>
+
+            <!-- Otra seccion -->
+            <div class="about__content">
+                <div class="about__cards">
+
+                    <article class='about__card'>
+                        <FaAward class='about__icon' />
+                        <h5>Weight</h5>
+                        <small>{{profile.weight}}</small>
+                    </article>
+
+                    <article class='about__card'>
+                        <FiUsers class='about__icon' />
+                        <h5>B.M.I</h5>
+                        <small>22.7</small>
+                    </article>
+
+                    <article class='about__card'>
+                        <RiFolderOpenFill class='about__icon' />
+                        <h5>Body Fat</h5>
+                        <small>{{profile.fat}}</small>
+                    </article>
+
+                    <article class='about__card'>
+                        <FaAward class='about__icon' />
+                        <h5>Muscle Mass</h5>
+                        <small>27.8 [kg]</small>
+                    </article>
+
+                </div>
+            </div>
+            <a class="btn btn-primary edit" href="{%url 'update' profile.id%}">Editar</a>
+        </div>
+    </div>
+</header>
+
+{%endblock %}
